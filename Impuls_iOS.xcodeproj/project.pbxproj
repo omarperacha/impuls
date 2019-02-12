@@ -1,0 +1,393 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		593BF7282212CE13006E7303 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593BF7272212CE13006E7303 /* AppDelegate.swift */; };
+		593BF72A2212CE13006E7303 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593BF7292212CE13006E7303 /* ViewController.swift */; };
+		593BF72D2212CE13006E7303 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 593BF72B2212CE13006E7303 /* Main.storyboard */; };
+		593BF72F2212CE14006E7303 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 593BF72E2212CE14006E7303 /* Assets.xcassets */; };
+		593BF7322212CE14006E7303 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 593BF7302212CE14006E7303 /* LaunchScreen.storyboard */; };
+		B85B0E34C89F09BEA0AF30A6 /* Pods_Impuls_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F75D80DEBCEC1E3C5ED5ACBE /* Pods_Impuls_iOS.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0E1C6F670A920808EB746D73 /* Pods-Impuls_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impuls_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Impuls_iOS/Pods-Impuls_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		593BF7242212CE13006E7303 /* Impuls_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Impuls_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		593BF7272212CE13006E7303 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		593BF7292212CE13006E7303 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		593BF72C2212CE13006E7303 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		593BF72E2212CE14006E7303 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		593BF7312212CE14006E7303 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		593BF7332212CE14006E7303 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F75D80DEBCEC1E3C5ED5ACBE /* Pods_Impuls_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Impuls_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCD39FB135C4CA805B4D4372 /* Pods-Impuls_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impuls_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Impuls_iOS/Pods-Impuls_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		593BF7212212CE13006E7303 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B85B0E34C89F09BEA0AF30A6 /* Pods_Impuls_iOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		593BF71B2212CE13006E7303 = {
+			isa = PBXGroup;
+			children = (
+				593BF7262212CE13006E7303 /* Impuls_iOS */,
+				593BF7252212CE13006E7303 /* Products */,
+				EF71F9FE53C1F916020E82A2 /* Pods */,
+				9B9905605F6938EE485E7CD8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		593BF7252212CE13006E7303 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				593BF7242212CE13006E7303 /* Impuls_iOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		593BF7262212CE13006E7303 /* Impuls_iOS */ = {
+			isa = PBXGroup;
+			children = (
+				593BF7272212CE13006E7303 /* AppDelegate.swift */,
+				593BF7292212CE13006E7303 /* ViewController.swift */,
+				593BF72B2212CE13006E7303 /* Main.storyboard */,
+				593BF72E2212CE14006E7303 /* Assets.xcassets */,
+				593BF7302212CE14006E7303 /* LaunchScreen.storyboard */,
+				593BF7332212CE14006E7303 /* Info.plist */,
+			);
+			path = Impuls_iOS;
+			sourceTree = "<group>";
+		};
+		9B9905605F6938EE485E7CD8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F75D80DEBCEC1E3C5ED5ACBE /* Pods_Impuls_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF71F9FE53C1F916020E82A2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FCD39FB135C4CA805B4D4372 /* Pods-Impuls_iOS.debug.xcconfig */,
+				0E1C6F670A920808EB746D73 /* Pods-Impuls_iOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		593BF7232212CE13006E7303 /* Impuls_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 593BF7362212CE14006E7303 /* Build configuration list for PBXNativeTarget "Impuls_iOS" */;
+			buildPhases = (
+				AC1E6C147289BE5EDFFA17DF /* [CP] Check Pods Manifest.lock */,
+				593BF7202212CE13006E7303 /* Sources */,
+				593BF7212212CE13006E7303 /* Frameworks */,
+				593BF7222212CE13006E7303 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Impuls_iOS;
+			productName = Impuls_iOS;
+			productReference = 593BF7242212CE13006E7303 /* Impuls_iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		593BF71C2212CE13006E7303 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Omar Peracha";
+				TargetAttributes = {
+					593BF7232212CE13006E7303 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 593BF71F2212CE13006E7303 /* Build configuration list for PBXProject "Impuls_iOS" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 593BF71B2212CE13006E7303;
+			productRefGroup = 593BF7252212CE13006E7303 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				593BF7232212CE13006E7303 /* Impuls_iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		593BF7222212CE13006E7303 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				593BF7322212CE14006E7303 /* LaunchScreen.storyboard in Resources */,
+				593BF72F2212CE14006E7303 /* Assets.xcassets in Resources */,
+				593BF72D2212CE13006E7303 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AC1E6C147289BE5EDFFA17DF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Impuls_iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		593BF7202212CE13006E7303 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				593BF72A2212CE13006E7303 /* ViewController.swift in Sources */,
+				593BF7282212CE13006E7303 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		593BF72B2212CE13006E7303 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				593BF72C2212CE13006E7303 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		593BF7302212CE14006E7303 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				593BF7312212CE14006E7303 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		593BF7342212CE14006E7303 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		593BF7352212CE14006E7303 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		593BF7372212CE14006E7303 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCD39FB135C4CA805B4D4372 /* Pods-Impuls_iOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 255A692Y6K;
+				INFOPLIST_FILE = Impuls_iOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.omarperacha.Impuls-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		593BF7382212CE14006E7303 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E1C6F670A920808EB746D73 /* Pods-Impuls_iOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 255A692Y6K;
+				INFOPLIST_FILE = Impuls_iOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.omarperacha.Impuls-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		593BF71F2212CE13006E7303 /* Build configuration list for PBXProject "Impuls_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				593BF7342212CE14006E7303 /* Debug */,
+				593BF7352212CE14006E7303 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		593BF7362212CE14006E7303 /* Build configuration list for PBXNativeTarget "Impuls_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				593BF7372212CE14006E7303 /* Debug */,
+				593BF7382212CE14006E7303 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 593BF71C2212CE13006E7303 /* Project object */;
+}
