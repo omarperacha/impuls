@@ -101,36 +101,24 @@ class ViewController: UIViewController, ARSessionDelegate {
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         // Do something with the new transform
         let cameraPosition = frame.camera.transform.columns.3
-        let node1Position = nodes[0].simdTransform.columns.3
-        let node2Position = nodes[1].simdTransform.columns.3
-        let node3Position = nodes[2].simdTransform.columns.3
-        let node4Position = nodes[3].simdTransform.columns.3
-        let node5Position = nodes[4].simdTransform.columns.3
+        var nodePositions = [simd_float4]()
+        var cameraToNodes = [simd_float4]()
+        var distances = [Float]()
+        for i in 0 ..< numNodes {
+            nodePositions.append(nodes[i].simdTransform.columns.3)
+            // here’s a line connecting the two points, which might be useful for other things
+            cameraToNodes.append(cameraPosition - nodePositions[i])
+            distances.append(length(cameraToNodes[i]))
+            
+            oscillators[i].amplitude = Double(1 - (abs(distances[i])/interactionDistance))
+        }
         
-        // here’s a line connecting the two points, which might be useful for other things
-        let cameraToNode1 = cameraPosition - node1Position
-        let cameraToNode2 = cameraPosition - node2Position
-        let cameraToNode3 = cameraPosition - node3Position
-        let cameraToNode4 = cameraPosition - node4Position
-        let cameraToNode5 = cameraPosition - node5Position
-        // and here’s just the scalar distance
-        let distance1 = length(cameraToNode1)
-        let distance2 = length(cameraToNode2)
-        let distance3 = length(cameraToNode3)
-        let distance4 = length(cameraToNode4)
-        let distance5 = length(cameraToNode5)
         
         //print("1 - \(distance1)")
         //print("2 - \(distance2)")
         
-        oscillators[0].amplitude = Double(1 - (abs(distance1)/interactionDistance))
-        oscillators[1].amplitude = Double(1 - (abs(distance2)/interactionDistance))
-        oscillators[2].amplitude = Double(1 - (abs(distance3)/interactionDistance))
-        oscillators[3].amplitude = Double(1 - (abs(distance4)/interactionDistance))
-        oscillators[4].amplitude = Double(1 - (abs(distance5)/interactionDistance))
-        
-        audioService.send(distance: "a" + String(distance1) + " " + "\(audioService.myPeerId)")
-        audioService.send(distance: "b" + String(distance2) + " " + "\(audioService.myPeerId)")
+        audioService.send(distance: "a" + String(distances[0]) + " " + "\(audioService.myPeerId)")
+        audioService.send(distance: "b" + String(distances[1]) + " " + "\(audioService.myPeerId)")
     }
     
     
