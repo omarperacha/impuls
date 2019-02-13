@@ -16,6 +16,7 @@ class ViewController: UIViewController, ARSessionDelegate {
     var sceneLocationView = ARSCNView()
     let configuration = ARWorldTrackingConfiguration()
     
+    let audioService = AudioService()
     
     let latOsc = AKOscillator()
     let lonOsc = AKOscillator()
@@ -36,8 +37,10 @@ class ViewController: UIViewController, ARSessionDelegate {
         view.addSubview(sceneLocationView)
         
         sceneLocationView.session.delegate = self
+        audioService.delegate = self
     
         AKSettings.playbackWhileMuted = true
+        AKSettings.useBluetooth = true
         
         latOsc.frequency = 440
         lonOsc.frequency = 660
@@ -67,7 +70,7 @@ class ViewController: UIViewController, ARSessionDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        
+
         node1 = addShape(x: 0, y: -0.3, z: -8)
         node2 = addShape(x: -2, y: -0.3, z: -4)
         
@@ -80,6 +83,7 @@ class ViewController: UIViewController, ARSessionDelegate {
         node.geometry = SCNSphere(radius: 0.2)
         node.geometry?.firstMaterial?.diffuse.contents = UIColor.orange
         node.position = SCNVector3(x, y, z)
+        
         DispatchQueue.main.async {
             self.sceneLocationView.scene.rootNode.addChildNode(node)
         }
@@ -95,7 +99,7 @@ class ViewController: UIViewController, ARSessionDelegate {
         
         // here’s a line connecting the two points, which might be useful for other things
         let cameraToNode1 = cameraPosition - node1Position!
-        let cameraToNode2 = cameraPosition - node2Position!
+        let cameraToNode2 = cameraPosition - node2Position! 
         // and here’s just the scalar distance
         let distance1 = length(cameraToNode1)
         let distance2 = length(cameraToNode2)
@@ -105,8 +109,27 @@ class ViewController: UIViewController, ARSessionDelegate {
         
         lonOsc.amplitude = Double(1 - (abs(distance1)/4))
         latOsc.amplitude = Double(1 - (abs(distance2)/4))
+        
+        audioService.send(distance: "a" + String(distance1))
+        audioService.send(distance: "b" + String(distance2))
     }
     
     
   
+}
+
+extension ViewController : AudioServiceDelegate {
+    
+    func connectedDevicesChanged(manager: AudioService, connectedDevices: [String]) {
+        OperationQueue.main.addOperation {
+            print(connectedDevices)
+        }
+    }
+    
+    func distanceChanged(manager: AudioService, distance: String) {
+        OperationQueue.main.addOperation {
+            print(distance)
+        }
+    }
+    
 }
