@@ -17,15 +17,14 @@ class ViewController: UIViewController, ARSessionDelegate {
     let configuration = ARWorldTrackingConfiguration()
     
     let audioService = AudioService()
+    let numNodes = 5
     
-    var interactionDistance = 4
+    var interactionDistance = 0.1
     
-    let latOsc = AKOscillator()
-    let lonOsc = AKOscillator()
+    var oscillators = [AKOscillator]()
     var mixer = AKMixer()
     
-    var node1 : SCNNode?
-    var node2 : SCNNode?
+    var nodes = [SCNNode]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,16 +44,20 @@ class ViewController: UIViewController, ARSessionDelegate {
         AKSettings.playbackWhileMuted = true
         AKSettings.useBluetooth = true
         
-        latOsc.frequency = 440
-        lonOsc.frequency = 660
-        mixer = AKMixer(latOsc, lonOsc)
+        for i in 0 ..< numNodes {
+            oscillators.append(AKOscillator())
+            oscillators[i].frequency = 220 + i*220
+            oscillators[i].amplitude = 0
+            oscillators[i] >>> mixer
+        }
         mixer.volume = 1.0
         AudioKit.output = mixer
         
         do {try AudioKit.start()} catch {print(error.localizedDescription)}
         
-        latOsc.start()
-        lonOsc.start()
+        for osc in oscillators {
+            osc.start()
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -74,9 +77,10 @@ class ViewController: UIViewController, ARSessionDelegate {
         super.viewWillAppear(animated)
         
 
-        node1 = addShape(x: 0, y: 0, z: -4, radius: 0.2)
-        node2 = addShape(x: -2, y: 0, z: -2, radius: 0.2)
-        
+        for i in 0 ..< numNodes {
+            let node = addShape(x: -0.5 + (i * 0.2), y: -0.5 + (i * 0.2), z: -0.5 + (i * 0.2), radius: 0.05)
+            nodes.append(node)
+        }
         
     }
     
@@ -97,21 +101,33 @@ class ViewController: UIViewController, ARSessionDelegate {
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         // Do something with the new transform
         let cameraPosition = frame.camera.transform.columns.3
-        let node1Position = node1?.simdTransform.columns.3
-        let node2Position = node2?.simdTransform.columns.3
+        let node1Position = nodes[0].simdTransform.columns.3
+        let node2Position = nodes[1].simdTransform.columns.3
+        let node3Position = nodes[2].simdTransform.columns.3
+        let node4Position = nodes[3].simdTransform.columns.3
+        let node5Position = nodes[4].simdTransform.columns.3
         
         // here’s a line connecting the two points, which might be useful for other things
-        let cameraToNode1 = cameraPosition - node1Position!
-        let cameraToNode2 = cameraPosition - node2Position! 
+        let cameraToNode1 = cameraPosition - node1Position
+        let cameraToNode2 = cameraPosition - node2Position
+        let cameraToNode3 = cameraPosition - node3Position
+        let cameraToNode4 = cameraPosition - node4Position
+        let cameraToNode5 = cameraPosition - node5Position
         // and here’s just the scalar distance
         let distance1 = length(cameraToNode1)
         let distance2 = length(cameraToNode2)
+        let distance3 = length(cameraToNode3)
+        let distance4 = length(cameraToNode4)
+        let distance5 = length(cameraToNode5)
         
         //print("1 - \(distance1)")
         //print("2 - \(distance2)")
         
-        lonOsc.amplitude = Double(1 - (abs(distance1)/interactionDistance))
-        latOsc.amplitude = Double(1 - (abs(distance2)/interactionDistance))
+        oscillators[0].amplitude = Double(1 - (abs(distance1)/interactionDistance))
+        oscillators[1].amplitude = Double(1 - (abs(distance2)/interactionDistance))
+        oscillators[2].amplitude = Double(1 - (abs(distance3)/interactionDistance))
+        oscillators[3].amplitude = Double(1 - (abs(distance4)/interactionDistance))
+        oscillators[4].amplitude = Double(1 - (abs(distance5)/interactionDistance))
         
         audioService.send(distance: "a" + String(distance1) + " " + "\(audioService.myPeerId)")
         audioService.send(distance: "b" + String(distance2) + " " + "\(audioService.myPeerId)")
