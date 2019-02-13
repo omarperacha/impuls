@@ -19,7 +19,7 @@ class ViewController: UIViewController, ARSessionDelegate {
     let audioService = AudioService()
     let numNodes = 5
     
-    var interactionDistance = 0.1
+    var interactionDistance = 0.2
     
     var oscillators = [AKOscillator]()
     var mixer = AKMixer()
@@ -78,7 +78,7 @@ class ViewController: UIViewController, ARSessionDelegate {
         
 
         for i in 0 ..< numNodes {
-            let node = addShape(x: -0.5 + (i * 0.2), y: -0.5 + (i * 0.2), z: -0.5 + (i * 0.2), radius: 0.05)
+            let node = addShape(x: -0.5 + (i * 0.25), y: -0.1, z: -0.3 + abs(2 - i)*0.1, radius: 0.05)
             nodes.append(node)
         }
         
@@ -87,7 +87,7 @@ class ViewController: UIViewController, ARSessionDelegate {
     
     func addShape(x: Double, y: Double, z: Double, radius: CGFloat) -> SCNNode {
         let node = SCNNode()
-        node.geometry = SCNSphere(radius: radius)
+        node.geometry = SCNCylinder(radius: radius, height: 2)
         node.geometry?.firstMaterial?.diffuse.contents = UIColor.orange
         node.position = SCNVector3(x, y, z)
         
