@@ -24,7 +24,7 @@ class AudioService : NSObject {
     
     var delegate : AudioServiceDelegate?
     
-    private let myPeerId = MCPeerID(displayName: UIDevice.current.name)
+    let myPeerId = MCPeerID(displayName: UIDevice.current.name)
     
     private let serviceAdvertiser : MCNearbyServiceAdvertiser
     private let serviceBrowser : MCNearbyServiceBrowser
@@ -54,7 +54,7 @@ class AudioService : NSObject {
     }()
     
     func send(distance : String) {
-        NSLog("%@", "sendColor: \(distance) to \(session.connectedPeers.count) peers")
+        NSLog("%@", "sendAudiot: \(distance) to \(session.connectedPeers.count) peers")
         
         if session.connectedPeers.count > 0 {
             do {

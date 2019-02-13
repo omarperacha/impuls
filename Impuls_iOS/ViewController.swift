@@ -18,6 +18,8 @@ class ViewController: UIViewController, ARSessionDelegate {
     
     let audioService = AudioService()
     
+    var interactionDistance = 4
+    
     let latOsc = AKOscillator()
     let lonOsc = AKOscillator()
     var mixer = AKMixer()
@@ -28,6 +30,7 @@ class ViewController: UIViewController, ARSessionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
         sceneLocationView.debugOptions = [
             ARSCNDebugOptions.showWorldOrigin,
             ARSCNDebugOptions.showFeaturePoints
@@ -71,16 +74,16 @@ class ViewController: UIViewController, ARSessionDelegate {
         super.viewWillAppear(animated)
         
 
-        node1 = addShape(x: 0, y: -0.3, z: -8)
-        node2 = addShape(x: -2, y: -0.3, z: -4)
+        node1 = addShape(x: 0, y: 0, z: -4, radius: 0.2)
+        node2 = addShape(x: -2, y: 0, z: -2, radius: 0.2)
         
         
     }
     
     
-    func addShape(x: Double, y: Double, z: Double) -> SCNNode {
+    func addShape(x: Double, y: Double, z: Double, radius: CGFloat) -> SCNNode {
         let node = SCNNode()
-        node.geometry = SCNSphere(radius: 0.2)
+        node.geometry = SCNSphere(radius: radius)
         node.geometry?.firstMaterial?.diffuse.contents = UIColor.orange
         node.position = SCNVector3(x, y, z)
         
@@ -107,11 +110,11 @@ class ViewController: UIViewController, ARSessionDelegate {
         //print("1 - \(distance1)")
         //print("2 - \(distance2)")
         
-        lonOsc.amplitude = Double(1 - (abs(distance1)/4))
-        latOsc.amplitude = Double(1 - (abs(distance2)/4))
+        lonOsc.amplitude = Double(1 - (abs(distance1)/interactionDistance))
+        latOsc.amplitude = Double(1 - (abs(distance2)/interactionDistance))
         
-        audioService.send(distance: "a" + String(distance1))
-        audioService.send(distance: "b" + String(distance2))
+        audioService.send(distance: "a" + String(distance1) + " " + "\(audioService.myPeerId)")
+        audioService.send(distance: "b" + String(distance2) + " " + "\(audioService.myPeerId)")
     }
     
     
