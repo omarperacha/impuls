@@ -15,6 +15,7 @@ class ViewController: UIViewController, ARSessionDelegate {
     
     var sceneLocationView = ARSCNView()
     let configuration = ARWorldTrackingConfiguration()
+    let sceneConfig = "Sax"
     
     let audioService = AudioService()
     let numNodes = 5
@@ -76,12 +77,12 @@ class ViewController: UIViewController, ARSessionDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-
-        for i in 0 ..< numNodes {
-            let node = addShape(x: -0.5 + (i * 0.25), y: -0.1, z: -0.3 + abs(2 - i)*0.1, radius: 0.05)
-            nodes.append(node)
+        if sceneConfig == "Sax" {
+            for i in 0 ..< numNodes {
+                let node = addShape(x: -0.5 + (i * 0.25), y: -0.1, z: -0.3 + abs(2 - i)*0.15, radius: 0.05)
+                nodes.append(node)
+            }
         }
-        
     }
     
     
