@@ -111,14 +111,10 @@ class ViewController: UIViewController, ARSessionDelegate {
             distances.append(length(cameraToNodes[i]))
             
             oscillators[i].amplitude = Double(1 - (abs(distances[i])/interactionDistance))
+            
+            audioService.send(distance: String(UnicodeScalar(i+97)!) + String(distances[i]) + " " + "\(audioService.myPeerId)")
+            
         }
-        
-        
-        //print("1 - \(distance1)")
-        //print("2 - \(distance2)")
-        
-        audioService.send(distance: "a" + String(distances[0]) + " " + "\(audioService.myPeerId)")
-        audioService.send(distance: "b" + String(distances[1]) + " " + "\(audioService.myPeerId)")
     }
     
     
