@@ -126,7 +126,7 @@ class ViewController: UIViewController, ARSessionDelegate {
             
             oscillators[i].amplitude = Double(1 - (abs(distances[i])/interactionDistance))
             
-            audioService.send(distance: String(UnicodeScalar(i+97)!) + String(distances[i]) + " " + "\(audioService.myPeerId)")
+            audioService.send(distance: String(UnicodeScalar(i+97)!) + String(distances[i]) + " " + audioService.myPeerId.displayName)
             
         }
     }
