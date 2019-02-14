@@ -7,18 +7,20 @@
 //
 
 import UIKit
-import CoreLocation
 import AudioKit
 import ARKit
 
 class ViewController: UIViewController, ARSessionDelegate {
     
     var sceneLocationView = ARSCNView()
-    let configuration = ARWorldTrackingConfiguration()
+    private let configuration = ARWorldTrackingConfiguration()
+    
+    
     let sceneConfig = "Sax"
+    let sceneNodeDict = ["Sax" : 5, "Game" : 4]
     
     let audioService = AudioService()
-    let numNodes = 5
+    var numNodes = 5
     
     var interactionDistance = 0.2
     
@@ -45,12 +47,15 @@ class ViewController: UIViewController, ARSessionDelegate {
         AKSettings.playbackWhileMuted = true
         AKSettings.useBluetooth = true
         
+        numNodes = sceneNodeDict[sceneConfig]!
+        
         for i in 0 ..< numNodes {
             oscillators.append(AKOscillator())
             oscillators[i].frequency = 220 + i*220
             oscillators[i].amplitude = 0
             oscillators[i] >>> mixer
         }
+        
         mixer.volume = 1.0
         AudioKit.output = mixer
         
@@ -78,11 +83,19 @@ class ViewController: UIViewController, ARSessionDelegate {
         super.viewWillAppear(animated)
         
         if sceneConfig == "Sax" {
+            interactionDistance = 0.2
             for i in 0 ..< numNodes {
                 let node = addShape(x: -0.5 + (i * 0.25), y: -0.1, z: -0.3 + abs(2 - i)*0.15, radius: 0.05)
                 nodes.append(node)
             }
+        } else if sceneConfig == "Game" {
+            interactionDistance = 2
+            for i in 0 ..< numNodes {
+                let node = addShape(x: i % 2 == 0 ? -1 : 1, y: -0.1, z: i < 2 ? -2 : 2, radius: 0.1)
+                nodes.append(node)
+            }
         }
+        
     }
     
     
@@ -117,7 +130,7 @@ class ViewController: UIViewController, ARSessionDelegate {
             
         }
     }
-    
+
     
   
 }
