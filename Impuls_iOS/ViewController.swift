@@ -30,6 +30,8 @@ class ViewController: UIViewController, ARSessionDelegate {
     
     var nodes = [SCNNode]()
     
+    var roll = -180.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -101,15 +103,12 @@ class ViewController: UIViewController, ARSessionDelegate {
             
             motionManager.deviceMotionUpdateInterval = 0.1
             
-            motionManager.startDeviceMotionUpdates(to: OperationQueue()) { [weak self] (motion, error) -> Void in
+            motionManager.startDeviceMotionUpdates(to: OperationQueue()) { (motion, error) -> Void in
                 
                 if let attitude = motion?.attitude {
                     
                     print("000_ \(attitude.roll * 180 / Double.pi)")
-                    
-                    DispatchQueue.main.async{
-                        // Update UI
-                    }
+                    self.roll = attitude.roll * 180 / Double.pi
                 }
                 
             }
@@ -149,7 +148,7 @@ class ViewController: UIViewController, ARSessionDelegate {
             
             oscillators[i].amplitude = Double(1 - (abs(distances[i])/interactionDistance))
             
-            audioService.send(distance: String(UnicodeScalar(i+97)!) + String(distances[i]) + " " + audioService.myPeerId.displayName)
+            audioService.send(distance: String(UnicodeScalar(i+97)!) + String(distances[i]) + " " + String(roll) + " " + audioService.myPeerId.displayName)
             
         }
     }
