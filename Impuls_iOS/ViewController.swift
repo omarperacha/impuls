@@ -17,7 +17,7 @@ class ViewController: UIViewController, ARSessionDelegate {
     
     
     let sceneConfig = "Sax"
-    let sceneNodeDict = ["Sax" : 5, "Game" : 4]
+    let sceneNodeDict = ["Sax" : 4, "Game" : 4]
     
     let audioService = AudioService()
     var numNodes = 5
@@ -83,9 +83,9 @@ class ViewController: UIViewController, ARSessionDelegate {
         super.viewWillAppear(animated)
         
         if sceneConfig == "Sax" {
-            interactionDistance = 0.2
+            interactionDistance = 0.4
             for i in 0 ..< numNodes {
-                let node = addShape(x: -0.5 + (i * 0.25), y: -0.1, z: -0.3 + abs(2 - i)*0.15, radius: 0.05)
+                let node = addShape(x: 0.0 + (i % 2) * (2-i) * 0.5, y: -0.1, z:  0.0 + ((i % 2) - 1) * (1 - i) * 0.5, radius: 0.05)
                 nodes.append(node)
             }
         } else if sceneConfig == "Game" {
