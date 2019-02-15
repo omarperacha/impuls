@@ -2,14 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSMotionUsageDescription</key>
-	<string>&quot;I&apos;m tracking your steps...&quot;</string>
-	<key>NSCameraUsageDescription</key>
-	<string>&quot;See what isn&apos;t really there&quot;</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>&quot;Omar is stalking you&quot;</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>&quot;Omar is stalking you&quot;</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -28,6 +20,14 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>"See what isn't really there"</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>"Omar is stalking you"</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>"Omar is stalking you"</string>
+	<key>NSMotionUsageDescription</key>
+	<string>"I'm tracking your steps..."</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -46,9 +46,6 @@
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>

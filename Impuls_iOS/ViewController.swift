@@ -13,6 +13,13 @@ import CoreMotion
 
 class ViewController: UIViewController, ARSessionDelegate {
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        get {
+            return .portrait
+            
+        }
+    }
+    
     var sceneLocationView = ARSCNView()
     private let configuration = ARWorldTrackingConfiguration()
     let motionManager = CMMotionManager()
