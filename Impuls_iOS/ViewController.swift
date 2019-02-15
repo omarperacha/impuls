@@ -9,12 +9,13 @@
 import UIKit
 import AudioKit
 import ARKit
+import CoreMotion
 
 class ViewController: UIViewController, ARSessionDelegate {
     
     var sceneLocationView = ARSCNView()
     private let configuration = ARWorldTrackingConfiguration()
-    
+    let motionManager = CMMotionManager()
     
     let sceneConfig = "Sax"
     let sceneNodeDict = ["Sax" : 4, "Game" : 4]
@@ -96,6 +97,28 @@ class ViewController: UIViewController, ARSessionDelegate {
             }
         }
         
+        if motionManager.isDeviceMotionAvailable {
+            
+            motionManager.deviceMotionUpdateInterval = 0.1
+            
+            motionManager.startDeviceMotionUpdates(to: OperationQueue()) { [weak self] (motion, error) -> Void in
+                
+                if let attitude = motion?.attitude {
+                    
+                    print("000_ \(attitude.roll * 180 / Double.pi)")
+                    
+                    DispatchQueue.main.async{
+                        // Update UI
+                    }
+                }
+                
+            }
+            
+            print("Device motion started")
+        }
+        else {
+            print("Device motion unavailable")
+        }
     }
     
     
@@ -130,7 +153,7 @@ class ViewController: UIViewController, ARSessionDelegate {
             
         }
     }
-
+    
     
   
 }
