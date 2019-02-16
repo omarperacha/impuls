@@ -28,12 +28,13 @@ class ViewController: UIViewController, ARSessionDelegate {
     let sceneNodeDict = ["Sax" : 4, "Game" : 4]
     
     let audioService = AudioService()
-    var numNodes = 5
+    var numNodes = 0
     
     var interactionDistance = 0.2
     
     var oscillators = [AKOscillator]()
     var mixer = AKMixer()
+    var distances = [Float]()
     
     var nodes = [SCNNode]()
     
@@ -97,12 +98,14 @@ class ViewController: UIViewController, ARSessionDelegate {
             for i in 0 ..< numNodes {
                 let node = addShape(x: 0.0 + (i % 2) * (2-i) * 0.5, y: -0.1, z:  0.0 + ((i % 2) - 1) * (1 - i) * 0.5, radius: 0.05)
                 nodes.append(node)
+                distances.append(100.0)
             }
         } else if sceneConfig == "Game" {
             interactionDistance = 2
             for i in 0 ..< numNodes {
                 let node = addShape(x: i % 2 == 0 ? -1 : 1, y: -0.1, z: i < 2 ? -2 : 2, radius: 0.1)
                 nodes.append(node)
+                distances.append(100.0)
             }
         }
         
@@ -116,6 +119,7 @@ class ViewController: UIViewController, ARSessionDelegate {
                     
                     print("000_ \(attitude.roll * 180 / Double.pi)")
                     self.roll = attitude.roll * 180 / Double.pi
+                    self.sendSignalfromRoll()
                 }
                 
             }
@@ -146,12 +150,16 @@ class ViewController: UIViewController, ARSessionDelegate {
         let cameraPosition = frame.camera.transform.columns.3
         var nodePositions = [simd_float4]()
         var cameraToNodes = [simd_float4]()
-        var distances = [Float]()
+        
+        if numNodes == 0 {
+            return
+        }
+        
         for i in 0 ..< numNodes {
             nodePositions.append(nodes[i].simdTransform.columns.3)
             // here’s a line connecting the two points, which might be useful for other things
             cameraToNodes.append(cameraPosition - nodePositions[i])
-            distances.append(length(cameraToNodes[i]))
+            distances[i] = length(cameraToNodes[i])
             
             oscillators[i].amplitude = Double(1 - (abs(distances[i])/interactionDistance))
             
@@ -160,6 +168,17 @@ class ViewController: UIViewController, ARSessionDelegate {
         }
     }
     
+    func sendSignalfromRoll(){
+        
+        for i in 0 ..< numNodes {
+            
+            oscillators[i].amplitude = Double(1 - (abs(distances[i])/interactionDistance))
+            
+            audioService.send(distance: String(UnicodeScalar(i+97)!) + String(distances[i]) + " " + String(roll) + " " + audioService.myPeerId.displayName)
+            
+        }
+        
+    }
     
   
 }
