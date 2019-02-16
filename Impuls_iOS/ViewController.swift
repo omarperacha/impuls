@@ -29,7 +29,7 @@ class ViewController: UIViewController, ARSessionDelegate {
     let sceneConfig = "Sax"
     let sceneNodeDict = ["Sax" : 4, "Game" : 4]
     
-    let audioService = AudioService()
+    var audioService: AudioService!
     var numNodes = 0
     
     var distances = [Float]()
@@ -51,7 +51,11 @@ class ViewController: UIViewController, ARSessionDelegate {
         view.addSubview(sceneLocationView)
         
         sceneLocationView.session.delegate = self
-        audioService.delegate = self
+        
+        if sceneConfig != "Sax" {
+            audioService = AudioService()
+            audioService.delegate = self
+        }
     
         numNodes = sceneNodeDict[sceneConfig]!
         
@@ -98,8 +102,6 @@ class ViewController: UIViewController, ARSessionDelegate {
             motionManager.startDeviceMotionUpdates(to: OperationQueue()) { (motion, error) -> Void in
                 
                 if let attitude = motion?.attitude {
-                    
-                    print("000_ \(attitude.roll * 180 / Double.pi)")
                     self.roll = attitude.roll * 180 / Double.pi
                     self.sendSignalfromRoll()
                 }
@@ -145,7 +147,9 @@ class ViewController: UIViewController, ARSessionDelegate {
             
             conductor.updateSound(distance: distances[i], rollVal: roll, index: i)
             
-            audioService.send(distance: String(UnicodeScalar(i+97)!) + String(distances[i]) + " " + String(roll) + " " + audioService.myPeerId.displayName)
+            if audioService != nil {
+                audioService.send(distance: String(UnicodeScalar(i+97)!) + String(distances[i]) + " " + String(roll) + " " + audioService.myPeerId.displayName)
+            }
             
         }
     }
@@ -156,7 +160,9 @@ class ViewController: UIViewController, ARSessionDelegate {
             
             conductor.updateSound(distance: distances[i], rollVal: roll, index: i)
             
+            if audioService != nil {
             audioService.send(distance: String(UnicodeScalar(i+97)!) + String(distances[i]) + " " + String(roll) + " " + audioService.myPeerId.displayName)
+            }
             
         }
         
