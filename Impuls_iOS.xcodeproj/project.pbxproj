@@ -13,6 +13,7 @@
 		593BF72F2212CE14006E7303 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 593BF72E2212CE14006E7303 /* Assets.xcassets */; };
 		593BF7322212CE14006E7303 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 593BF7302212CE14006E7303 /* LaunchScreen.storyboard */; };
 		5956B7852213304F00BE9235 /* multipeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5956B7842213304F00BE9235 /* multipeer.swift */; };
+		59986FCE221827D700DB553A /* audioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59986FCD221827D700DB553A /* audioManager.swift */; };
 		B85B0E34C89F09BEA0AF30A6 /* Pods_Impuls_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F75D80DEBCEC1E3C5ED5ACBE /* Pods_Impuls_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		593BF7312212CE14006E7303 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		593BF7332212CE14006E7303 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5956B7842213304F00BE9235 /* multipeer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = multipeer.swift; sourceTree = "<group>"; };
+		59986FCD221827D700DB553A /* audioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioManager.swift; sourceTree = "<group>"; };
 		F75D80DEBCEC1E3C5ED5ACBE /* Pods_Impuls_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Impuls_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCD39FB135C4CA805B4D4372 /* Pods-Impuls_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impuls_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Impuls_iOS/Pods-Impuls_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				593BF7272212CE13006E7303 /* AppDelegate.swift */,
+				59986FCD221827D700DB553A /* audioManager.swift */,
 				593BF7292212CE13006E7303 /* ViewController.swift */,
 				593BF72B2212CE13006E7303 /* Main.storyboard */,
 				593BF72E2212CE14006E7303 /* Assets.xcassets */,
@@ -190,6 +193,7 @@
 			files = (
 				5956B7852213304F00BE9235 /* multipeer.swift in Sources */,
 				593BF72A2212CE13006E7303 /* ViewController.swift in Sources */,
+				59986FCE221827D700DB553A /* audioManager.swift in Sources */,
 				593BF7282212CE13006E7303 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

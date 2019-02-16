@@ -11,6 +11,8 @@ import AudioKit
 import ARKit
 import CoreMotion
 
+let conductor = AudioManager()
+
 class ViewController: UIViewController, ARSessionDelegate {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -30,10 +32,6 @@ class ViewController: UIViewController, ARSessionDelegate {
     let audioService = AudioService()
     var numNodes = 0
     
-    var interactionDistance = 0.2
-    
-    var oscillators = [AKOscillator]()
-    var mixer = AKMixer()
     var distances = [Float]()
     
     var nodes = [SCNNode]()
@@ -55,26 +53,8 @@ class ViewController: UIViewController, ARSessionDelegate {
         sceneLocationView.session.delegate = self
         audioService.delegate = self
     
-        AKSettings.playbackWhileMuted = true
-        AKSettings.useBluetooth = true
-        
         numNodes = sceneNodeDict[sceneConfig]!
         
-        for i in 0 ..< numNodes {
-            oscillators.append(AKOscillator())
-            oscillators[i].frequency = 220 + i*220
-            oscillators[i].amplitude = 0
-            oscillators[i] >>> mixer
-        }
-        
-        mixer.volume = 1.0
-        AudioKit.output = mixer
-        
-        do {try AudioKit.start()} catch {print(error.localizedDescription)}
-        
-        for osc in oscillators {
-            osc.start()
-        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -94,20 +74,22 @@ class ViewController: UIViewController, ARSessionDelegate {
         super.viewWillAppear(animated)
         
         if sceneConfig == "Sax" {
-            interactionDistance = 0.4
+            conductor.interactionDistance = 0.4
             for i in 0 ..< numNodes {
                 let node = addShape(x: 0.0 + (i % 2) * (2-i) * 0.5, y: -0.1, z:  0.0 + ((i % 2) - 1) * (1 - i) * 0.5, radius: 0.05)
                 nodes.append(node)
                 distances.append(100.0)
             }
         } else if sceneConfig == "Game" {
-            interactionDistance = 2
+            conductor.interactionDistance = 2
             for i in 0 ..< numNodes {
                 let node = addShape(x: i % 2 == 0 ? -1 : 1, y: -0.1, z: i < 2 ? -2 : 2, radius: 0.1)
                 nodes.append(node)
                 distances.append(100.0)
             }
         }
+        
+         conductor.initialise(config: sceneConfig, nodes: numNodes)
         
         if motionManager.isDeviceMotionAvailable {
             
@@ -161,7 +143,7 @@ class ViewController: UIViewController, ARSessionDelegate {
             cameraToNodes.append(cameraPosition - nodePositions[i])
             distances[i] = length(cameraToNodes[i])
             
-            oscillators[i].amplitude = Double(1 - (abs(distances[i])/interactionDistance))
+            conductor.updateSound(distance: distances[i], rollVal: roll, index: i)
             
             audioService.send(distance: String(UnicodeScalar(i+97)!) + String(distances[i]) + " " + String(roll) + " " + audioService.myPeerId.displayName)
             
@@ -172,7 +154,7 @@ class ViewController: UIViewController, ARSessionDelegate {
         
         for i in 0 ..< numNodes {
             
-            oscillators[i].amplitude = Double(1 - (abs(distances[i])/interactionDistance))
+            conductor.updateSound(distance: distances[i], rollVal: roll, index: i)
             
             audioService.send(distance: String(UnicodeScalar(i+97)!) + String(distances[i]) + " " + String(roll) + " " + audioService.myPeerId.displayName)
             
