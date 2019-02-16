@@ -12,12 +12,21 @@ import AudioKit
 class AudioManager {
     
     private let lock = NSLock()
-    var interactionDistance = 0.4
+    
     private var nodes = 0
     private var config = "none"
     
+    private var mixerSplitIdx = 4
+
+    let samples = ["multiphonic1.wav", "multiphonic2.wav", "multiphonic3.wav", "multiphonic4.wav", "multiphonic5.wav", "multiphonic6.wav", "multiphonic7.wav", "multiphonic8.wav"]
+    
     var oscillators = [AKOscillator]()
+    var samplers = [AKWaveTable]()
     var mixer = AKMixer()
+    var mixer1 = AKMixer()
+    var mixer2 = AKMixer()
+    
+    var interactionDistance = 0.4
     
     
     func initialise(config: String, nodes: Int){
@@ -59,14 +68,31 @@ class AudioManager {
     }
     
     func setupSaxConfig(){
+        mixer1 >>> mixer
+        mixer2 >>> mixer
         
+        for i in 0 ..< (nodes*2) {
+            
+            let file = try! AKAudioFile(readFileName: samples[i])
+            let sampler = AKWaveTable(file: file)
+            samplers.append(sampler)
+            samplers[i].loopEnabled = true
+            samplers[i].volume = 0
+            
+            
+            if i < mixerSplitIdx {
+                samplers[i] >>> mixer1
+            } else {
+                samplers[i] >>> mixer2
+            }
+        }
     }
     
     func start(){
         switch config {
         case "Sax":
-            for osc in oscillators {
-                osc.start()
+            for sampler in samplers {
+                sampler.start()
             }
         default:
             for osc in oscillators {
@@ -81,11 +107,24 @@ class AudioManager {
             return
         }
         
+        let normalisedVal = Double(1 - (abs(distance)/interactionDistance))
+        
         switch config {
         case "Sax":
-            print("saxy")
+            if samplers.count > 0 {
+                samplers[index].volume = normalisedVal
+                if conductor.config == "Sax" {
+                    samplers[index + mixerSplitIdx].volume = normalisedVal
+                }
+            }
+            
+            let balance = min(1, max(0, (rollVal - 0)/90))
+            mixer1.volume = 1 - balance
+            mixer2.volume = balance
+            
+            
         default:
-            oscillators[index].amplitude = Double(1 - (abs(distance)/interactionDistance))
+            oscillators[index].amplitude = normalisedVal
         }
         
     }
