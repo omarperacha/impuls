@@ -26,7 +26,7 @@ class ViewController: UIViewController, ARSessionDelegate {
     private let configuration = ARWorldTrackingConfiguration()
     let motionManager = CMMotionManager()
     
-    let sceneConfig = "Sax"
+    let sceneConfig = "Game"
     let sceneNodeDict = ["Sax" : 4, "Game" : 4]
     
     let audioService = AudioService()
