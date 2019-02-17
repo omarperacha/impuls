@@ -18,7 +18,7 @@ class AudioManager {
     
     private var mixerSplitIdx = 4
 
-    let samples = ["multiphonic1.wav", "multiphonic2.wav", "multiphonic3.wav", "multiphonic4.wav", "multiphonic5.wav", "multiphonic6.wav", "multiphonic7.wav", "multiphonic8.wav"]
+    let samples = ["multiphonic1_laut.wav", "multiphonic2_laut.wav", "multiphonic3_laut.wav", "multiphonic4_laut.wav", "multiphonic5_laut.wav", "multiphonic6_laut.wav", "multiphonic7_laut.wav", "multiphonic8_laut.wav"]
     
     var oscillators = [AKOscillator]()
     var samplers = [AKWaveTable]()

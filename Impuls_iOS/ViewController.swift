@@ -27,7 +27,7 @@ class ViewController: UIViewController, ARSessionDelegate {
     let motionManager = CMMotionManager()
     
     let sceneConfig = "Sax"
-    let sceneNodeDict = ["Sax" : 4, "Game" : 4]
+    let sceneNodeDict = ["Sax" : 4, "Game" : 4, "Column" : 4]
     
     var audioService: AudioService!
     var numNodes = 0
@@ -43,7 +43,6 @@ class ViewController: UIViewController, ARSessionDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         
         sceneLocationView.debugOptions = [
-            ARSCNDebugOptions.showWorldOrigin,
             ARSCNDebugOptions.showFeaturePoints
         ]
         // 2
@@ -88,6 +87,13 @@ class ViewController: UIViewController, ARSessionDelegate {
             conductor.interactionDistance = 2
             for i in 0 ..< numNodes {
                 let node = addShape(x: i % 2 == 0 ? -1 : 1, y: -0.1, z: i < 2 ? -2 : 2, radius: 0.1)
+                nodes.append(node)
+                distances.append(100.0)
+            }
+        } else if sceneConfig == "Column" {
+            conductor.interactionDistance = 0.4
+            for i in 0 ..< numNodes {
+                let node = addShape(x: i % 2 == 0 ? -1 : 1, y: -0.1, z: i < 2 ? -1 : 1, radius: 0.1)
                 nodes.append(node)
                 distances.append(100.0)
             }

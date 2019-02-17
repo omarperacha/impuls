@@ -14,14 +14,14 @@
 		593BF7322212CE14006E7303 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 593BF7302212CE14006E7303 /* LaunchScreen.storyboard */; };
 		5956B7852213304F00BE9235 /* multipeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5956B7842213304F00BE9235 /* multipeer.swift */; };
 		59986FCE221827D700DB553A /* audioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59986FCD221827D700DB553A /* audioManager.swift */; };
-		59986FD822182F8700DB553A /* multiphonic8.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59986FD022182F8700DB553A /* multiphonic8.wav */; };
-		59986FD922182F8700DB553A /* multiphonic3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59986FD122182F8700DB553A /* multiphonic3.wav */; };
-		59986FDA22182F8700DB553A /* multiphonic2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59986FD222182F8700DB553A /* multiphonic2.wav */; };
-		59986FDB22182F8700DB553A /* multiphonic1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59986FD322182F8700DB553A /* multiphonic1.wav */; };
-		59986FDC22182F8700DB553A /* multiphonic5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59986FD422182F8700DB553A /* multiphonic5.wav */; };
-		59986FDD22182F8700DB553A /* multiphonic4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59986FD522182F8700DB553A /* multiphonic4.wav */; };
-		59986FDE22182F8700DB553A /* multiphonic6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59986FD622182F8700DB553A /* multiphonic6.wav */; };
-		59986FDF22182F8700DB553A /* multiphonic7.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59986FD722182F8700DB553A /* multiphonic7.wav */; };
+		59C7CD0922198CB100D8B98D /* multiphonic3_laut.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59C7CD0122198CB100D8B98D /* multiphonic3_laut.wav */; };
+		59C7CD0A22198CB100D8B98D /* multiphonic6_laut.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59C7CD0222198CB100D8B98D /* multiphonic6_laut.wav */; };
+		59C7CD0B22198CB100D8B98D /* multiphonic4_laut.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59C7CD0322198CB100D8B98D /* multiphonic4_laut.wav */; };
+		59C7CD0C22198CB100D8B98D /* multiphonic5_laut.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59C7CD0422198CB100D8B98D /* multiphonic5_laut.wav */; };
+		59C7CD0D22198CB100D8B98D /* multiphonic8_laut.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59C7CD0522198CB100D8B98D /* multiphonic8_laut.wav */; };
+		59C7CD0E22198CB100D8B98D /* multiphonic2_laut.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59C7CD0622198CB100D8B98D /* multiphonic2_laut.wav */; };
+		59C7CD0F22198CB100D8B98D /* multiphonic1_laut.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59C7CD0722198CB100D8B98D /* multiphonic1_laut.wav */; };
+		59C7CD1022198CB100D8B98D /* multiphonic7_laut.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59C7CD0822198CB100D8B98D /* multiphonic7_laut.wav */; };
 		B85B0E34C89F09BEA0AF30A6 /* Pods_Impuls_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F75D80DEBCEC1E3C5ED5ACBE /* Pods_Impuls_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,14 +36,14 @@
 		593BF7332212CE14006E7303 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5956B7842213304F00BE9235 /* multipeer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = multipeer.swift; sourceTree = "<group>"; };
 		59986FCD221827D700DB553A /* audioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioManager.swift; sourceTree = "<group>"; };
-		59986FD022182F8700DB553A /* multiphonic8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic8.wav; sourceTree = "<group>"; };
-		59986FD122182F8700DB553A /* multiphonic3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic3.wav; sourceTree = "<group>"; };
-		59986FD222182F8700DB553A /* multiphonic2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic2.wav; sourceTree = "<group>"; };
-		59986FD322182F8700DB553A /* multiphonic1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic1.wav; sourceTree = "<group>"; };
-		59986FD422182F8700DB553A /* multiphonic5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic5.wav; sourceTree = "<group>"; };
-		59986FD522182F8700DB553A /* multiphonic4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic4.wav; sourceTree = "<group>"; };
-		59986FD622182F8700DB553A /* multiphonic6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic6.wav; sourceTree = "<group>"; };
-		59986FD722182F8700DB553A /* multiphonic7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic7.wav; sourceTree = "<group>"; };
+		59C7CD0122198CB100D8B98D /* multiphonic3_laut.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic3_laut.wav; sourceTree = "<group>"; };
+		59C7CD0222198CB100D8B98D /* multiphonic6_laut.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic6_laut.wav; sourceTree = "<group>"; };
+		59C7CD0322198CB100D8B98D /* multiphonic4_laut.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic4_laut.wav; sourceTree = "<group>"; };
+		59C7CD0422198CB100D8B98D /* multiphonic5_laut.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic5_laut.wav; sourceTree = "<group>"; };
+		59C7CD0522198CB100D8B98D /* multiphonic8_laut.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic8_laut.wav; sourceTree = "<group>"; };
+		59C7CD0622198CB100D8B98D /* multiphonic2_laut.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic2_laut.wav; sourceTree = "<group>"; };
+		59C7CD0722198CB100D8B98D /* multiphonic1_laut.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic1_laut.wav; sourceTree = "<group>"; };
+		59C7CD0822198CB100D8B98D /* multiphonic7_laut.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic7_laut.wav; sourceTree = "<group>"; };
 		F75D80DEBCEC1E3C5ED5ACBE /* Pods_Impuls_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Impuls_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCD39FB135C4CA805B4D4372 /* Pods-Impuls_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impuls_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Impuls_iOS/Pods-Impuls_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,14 +97,14 @@
 		59986FCF22182F8700DB553A /* multiphonics */ = {
 			isa = PBXGroup;
 			children = (
-				59986FD022182F8700DB553A /* multiphonic8.wav */,
-				59986FD122182F8700DB553A /* multiphonic3.wav */,
-				59986FD222182F8700DB553A /* multiphonic2.wav */,
-				59986FD322182F8700DB553A /* multiphonic1.wav */,
-				59986FD422182F8700DB553A /* multiphonic5.wav */,
-				59986FD522182F8700DB553A /* multiphonic4.wav */,
-				59986FD622182F8700DB553A /* multiphonic6.wav */,
-				59986FD722182F8700DB553A /* multiphonic7.wav */,
+				59C7CD0722198CB100D8B98D /* multiphonic1_laut.wav */,
+				59C7CD0622198CB100D8B98D /* multiphonic2_laut.wav */,
+				59C7CD0122198CB100D8B98D /* multiphonic3_laut.wav */,
+				59C7CD0322198CB100D8B98D /* multiphonic4_laut.wav */,
+				59C7CD0422198CB100D8B98D /* multiphonic5_laut.wav */,
+				59C7CD0222198CB100D8B98D /* multiphonic6_laut.wav */,
+				59C7CD0822198CB100D8B98D /* multiphonic7_laut.wav */,
+				59C7CD0522198CB100D8B98D /* multiphonic8_laut.wav */,
 			);
 			path = multiphonics;
 			sourceTree = "<group>";
@@ -185,17 +185,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59986FDD22182F8700DB553A /* multiphonic4.wav in Resources */,
-				59986FDA22182F8700DB553A /* multiphonic2.wav in Resources */,
-				59986FD822182F8700DB553A /* multiphonic8.wav in Resources */,
+				59C7CD1022198CB100D8B98D /* multiphonic7_laut.wav in Resources */,
 				593BF7322212CE14006E7303 /* LaunchScreen.storyboard in Resources */,
-				59986FDF22182F8700DB553A /* multiphonic7.wav in Resources */,
 				593BF72F2212CE14006E7303 /* Assets.xcassets in Resources */,
-				59986FDB22182F8700DB553A /* multiphonic1.wav in Resources */,
-				59986FDC22182F8700DB553A /* multiphonic5.wav in Resources */,
-				59986FD922182F8700DB553A /* multiphonic3.wav in Resources */,
-				59986FDE22182F8700DB553A /* multiphonic6.wav in Resources */,
+				59C7CD0B22198CB100D8B98D /* multiphonic4_laut.wav in Resources */,
+				59C7CD0C22198CB100D8B98D /* multiphonic5_laut.wav in Resources */,
+				59C7CD0D22198CB100D8B98D /* multiphonic8_laut.wav in Resources */,
+				59C7CD0922198CB100D8B98D /* multiphonic3_laut.wav in Resources */,
+				59C7CD0F22198CB100D8B98D /* multiphonic1_laut.wav in Resources */,
+				59C7CD0E22198CB100D8B98D /* multiphonic2_laut.wav in Resources */,
 				593BF72D2212CE13006E7303 /* Main.storyboard in Resources */,
+				59C7CD0A22198CB100D8B98D /* multiphonic6_laut.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
