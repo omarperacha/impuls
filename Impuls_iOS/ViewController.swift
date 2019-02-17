@@ -10,6 +10,7 @@ import UIKit
 import AudioKit
 import ARKit
 import CoreMotion
+import MediaPlayer
 
 let conductor = AudioManager()
 
@@ -48,6 +49,13 @@ class ViewController: UIViewController, ARSessionDelegate {
         // 2
         sceneLocationView.session.run(configuration)
         view.addSubview(sceneLocationView)
+        
+        let volumeView = MPVolumeView(frame: CGRect(x: 0, y: 40, width: 300, height: 30))
+        self.view.addSubview(volumeView)
+        NotificationCenter.default.addObserver(self, selector: #selector(volumeChanged(notification:)),
+                                               name: NSNotification.Name(rawValue: "AVSystemController_SystemVolumeDidChangeNotification"),
+                                               object: nil)
+        volumeView.isHidden = true
         
         sceneLocationView.session.delegate = self
         
@@ -172,6 +180,17 @@ class ViewController: UIViewController, ARSessionDelegate {
             
         }
         
+    }
+    
+    @objc func volumeChanged(notification: NSNotification) {
+        
+        if let userInfo = notification.userInfo {
+            if let volumeChangeType = userInfo["AVSystemController_AudioVolumeChangeReasonNotificationParameter"] as? String {
+                if volumeChangeType == "ExplicitVolumeChange" {
+                    print("000_ volume change")
+                }
+            }
+        }
     }
     
   
