@@ -28,7 +28,7 @@ class ViewController: UIViewController, ARSessionDelegate {
     let motionManager = CMMotionManager()
     
     let sceneConfig = "Sax"
-    let sceneNodeDict = ["Sax" : 4, "Game" : 4, "Column" : 4]
+    let sceneNodeDict = ["Sax" : 4, "Game" : 4, "Column" : 2, "Conductor": 1]
     
     var audioService: AudioService!
     var numNodes = 0
