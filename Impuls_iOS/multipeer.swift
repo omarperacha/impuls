@@ -39,7 +39,6 @@ class AudioService : NSObject {
         self.serviceAdvertiser.delegate = self
         self.serviceAdvertiser.startAdvertisingPeer()
 
-        
         self.serviceBrowser.delegate = self
         self.serviceBrowser.startBrowsingForPeers()
     }
@@ -79,6 +78,9 @@ extension AudioService : MCNearbyServiceAdvertiserDelegate {
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
         NSLog("%@", "didReceiveInvitationFromPeer \(peerID)")
+        if peerID.displayName != "omars-macbook.local" {
+            return
+        }
         invitationHandler(true, self.session)
     }
     
@@ -93,7 +95,9 @@ extension AudioService : MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         NSLog("%@", "foundPeer: \(peerID)")
         NSLog("%@", "invitePeer: \(peerID)")
-        //if peerID.displayName != O
+        if peerID.displayName != "omars-macbook.local" {
+            return
+        }
         browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)
     }
     
@@ -109,6 +113,11 @@ extension AudioService : MCSessionDelegate {
         NSLog("%@", "peer \(peerID) didChangeState: \(state.rawValue)")
         self.delegate?.connectedDevicesChanged(manager: self, connectedDevices:
             session.connectedPeers.map{$0.displayName})
+        if state.rawValue == 0 {
+            self.serviceAdvertiser.startAdvertisingPeer()
+        } else if state.rawValue == 2 {
+            self.serviceAdvertiser.stopAdvertisingPeer()
+        }
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
