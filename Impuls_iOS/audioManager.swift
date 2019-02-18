@@ -20,6 +20,8 @@ class AudioManager {
 
     let samples = ["multiphonic1_laut.wav", "multiphonic2_laut.wav", "multiphonic3_laut.wav", "multiphonic4_laut.wav", "multiphonic5_laut.wav", "multiphonic6_laut.wav", "multiphonic7_laut.wav", "multiphonic8_laut.wav"]
     
+     let outdoorSamples = ["1 Beep low compressed bounce.aif", "2 bird market process_bip.aif", "3 papers_bip.aif", "4 Suspiro bounce.aif", "5 Traffic bounce.aif"]
+    
     var oscillators = [AKOscillator]()
     var samplers = [AKWaveTable]()
     var mixer = AKMixer()
@@ -43,6 +45,8 @@ class AudioManager {
         switch config {
         case "Sax":
             setupSaxConfig()
+        case "Outdoor":
+            setupOutdoorConfig()
         default:
             setupDefaultConfig()
         }
@@ -88,9 +92,27 @@ class AudioManager {
         }
     }
     
+    func setupOutdoorConfig(){
+        
+        for i in 0 ..< (nodes) {
+            
+            let file = try! AKAudioFile(readFileName: outdoorSamples[i])
+            let sampler = AKWaveTable(file: file)
+            samplers.append(sampler)
+            samplers[i].loopEnabled = true
+            samplers[i].volume = 0
+            
+            samplers[i] >>> mixer
+        }
+    }
+    
     func start(){
         switch config {
         case "Sax":
+            for sampler in samplers {
+                sampler.start()
+            }
+        case "Outdoor":
             for sampler in samplers {
                 sampler.start()
             }
@@ -122,7 +144,10 @@ class AudioManager {
             mixer1.volume = 1 - balance
             mixer2.volume = balance
             
-            
+        case "Outdoor":
+            if samplers.count > 0 {
+                samplers[index].volume = normalisedVal
+            }
         default:
             oscillators[index].amplitude = normalisedVal
         }

@@ -12,6 +12,11 @@
 		593BF72D2212CE13006E7303 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 593BF72B2212CE13006E7303 /* Main.storyboard */; };
 		593BF72F2212CE14006E7303 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 593BF72E2212CE14006E7303 /* Assets.xcassets */; };
 		593BF7322212CE14006E7303 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 593BF7302212CE14006E7303 /* LaunchScreen.storyboard */; };
+		594652B0221B000F0005E240 /* 5 Traffic bounce.aif in Resources */ = {isa = PBXBuildFile; fileRef = 594652AB221B000F0005E240 /* 5 Traffic bounce.aif */; };
+		594652B1221B000F0005E240 /* 3 papers_bip.aif in Resources */ = {isa = PBXBuildFile; fileRef = 594652AC221B000F0005E240 /* 3 papers_bip.aif */; };
+		594652B2221B000F0005E240 /* 4 Suspiro bounce.aif in Resources */ = {isa = PBXBuildFile; fileRef = 594652AD221B000F0005E240 /* 4 Suspiro bounce.aif */; };
+		594652B3221B000F0005E240 /* 1 Beep low compressed bounce.aif in Resources */ = {isa = PBXBuildFile; fileRef = 594652AE221B000F0005E240 /* 1 Beep low compressed bounce.aif */; };
+		594652B4221B000F0005E240 /* 2 bird market process_bip.aif in Resources */ = {isa = PBXBuildFile; fileRef = 594652AF221B000F0005E240 /* 2 bird market process_bip.aif */; };
 		5956B7852213304F00BE9235 /* multipeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5956B7842213304F00BE9235 /* multipeer.swift */; };
 		59986FCE221827D700DB553A /* audioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59986FCD221827D700DB553A /* audioManager.swift */; };
 		59C7CD0922198CB100D8B98D /* multiphonic3_laut.wav in Resources */ = {isa = PBXBuildFile; fileRef = 59C7CD0122198CB100D8B98D /* multiphonic3_laut.wav */; };
@@ -34,6 +39,11 @@
 		593BF72E2212CE14006E7303 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		593BF7312212CE14006E7303 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		593BF7332212CE14006E7303 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		594652AB221B000F0005E240 /* 5 Traffic bounce.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "5 Traffic bounce.aif"; sourceTree = "<group>"; };
+		594652AC221B000F0005E240 /* 3 papers_bip.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "3 papers_bip.aif"; sourceTree = "<group>"; };
+		594652AD221B000F0005E240 /* 4 Suspiro bounce.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "4 Suspiro bounce.aif"; sourceTree = "<group>"; };
+		594652AE221B000F0005E240 /* 1 Beep low compressed bounce.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "1 Beep low compressed bounce.aif"; sourceTree = "<group>"; };
+		594652AF221B000F0005E240 /* 2 bird market process_bip.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "2 bird market process_bip.aif"; sourceTree = "<group>"; };
 		5956B7842213304F00BE9235 /* multipeer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = multipeer.swift; sourceTree = "<group>"; };
 		59986FCD221827D700DB553A /* audioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioManager.swift; sourceTree = "<group>"; };
 		59C7CD0122198CB100D8B98D /* multiphonic3_laut.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = multiphonic3_laut.wav; sourceTree = "<group>"; };
@@ -82,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				59986FCF22182F8700DB553A /* multiphonics */,
+				594652AA221B000F0005E240 /* Another stage audio */,
 				593BF7272212CE13006E7303 /* AppDelegate.swift */,
 				59986FCD221827D700DB553A /* audioManager.swift */,
 				593BF7292212CE13006E7303 /* ViewController.swift */,
@@ -92,6 +103,18 @@
 				5956B7842213304F00BE9235 /* multipeer.swift */,
 			);
 			path = Impuls_iOS;
+			sourceTree = "<group>";
+		};
+		594652AA221B000F0005E240 /* Another stage audio */ = {
+			isa = PBXGroup;
+			children = (
+				594652AB221B000F0005E240 /* 5 Traffic bounce.aif */,
+				594652AC221B000F0005E240 /* 3 papers_bip.aif */,
+				594652AD221B000F0005E240 /* 4 Suspiro bounce.aif */,
+				594652AE221B000F0005E240 /* 1 Beep low compressed bounce.aif */,
+				594652AF221B000F0005E240 /* 2 bird market process_bip.aif */,
+			);
+			path = "Another stage audio";
 			sourceTree = "<group>";
 		};
 		59986FCF22182F8700DB553A /* multiphonics */ = {
@@ -186,12 +209,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				59C7CD1022198CB100D8B98D /* multiphonic7_laut.wav in Resources */,
+				594652B2221B000F0005E240 /* 4 Suspiro bounce.aif in Resources */,
 				593BF7322212CE14006E7303 /* LaunchScreen.storyboard in Resources */,
 				593BF72F2212CE14006E7303 /* Assets.xcassets in Resources */,
 				59C7CD0B22198CB100D8B98D /* multiphonic4_laut.wav in Resources */,
 				59C7CD0C22198CB100D8B98D /* multiphonic5_laut.wav in Resources */,
 				59C7CD0D22198CB100D8B98D /* multiphonic8_laut.wav in Resources */,
+				594652B1221B000F0005E240 /* 3 papers_bip.aif in Resources */,
+				594652B0221B000F0005E240 /* 5 Traffic bounce.aif in Resources */,
+				594652B3221B000F0005E240 /* 1 Beep low compressed bounce.aif in Resources */,
 				59C7CD0922198CB100D8B98D /* multiphonic3_laut.wav in Resources */,
+				594652B4221B000F0005E240 /* 2 bird market process_bip.aif in Resources */,
 				59C7CD0F22198CB100D8B98D /* multiphonic1_laut.wav in Resources */,
 				59C7CD0E22198CB100D8B98D /* multiphonic2_laut.wav in Resources */,
 				593BF72D2212CE13006E7303 /* Main.storyboard in Resources */,

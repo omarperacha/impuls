@@ -27,8 +27,8 @@ class ViewController: UIViewController, ARSessionDelegate {
     private let configuration = ARWorldTrackingConfiguration()
     let motionManager = CMMotionManager()
     
-    let sceneConfig = "Column"
-    let sceneNodeDict = ["Sax" : 4, "Game" : 4, "Column" : 3, "Conductor": 1]
+    let sceneConfig = "Outdoor"
+    let sceneNodeDict = ["Sax" : 4, "Outdoor" : 5, "Column" : 3, "Conductor": 1]
     
     var audioService: AudioService!
     var numNodes = 0
@@ -91,13 +91,18 @@ class ViewController: UIViewController, ARSessionDelegate {
                 nodes.append(node)
                 distances.append(100.0)
             }
-        } else if sceneConfig == "Game" {
-            conductor.interactionDistance = 2
-            for i in 0 ..< numNodes {
-                let node = addShape(x: i % 2 == 0 ? -1 : 1, y: -0.1, z: i < 2 ? -2 : 2, radius: 0.1)
+        } else if sceneConfig == "Outdoor" {
+            conductor.interactionDistance = 0.7
+            for i in 0 ..< (numNodes - 1) {
+                let node = addShape(x: i % 2 == 0 ? -1 : 1, y: 0.5, z: i < 2 ? -2 : 2, radius: 0.2)
                 nodes.append(node)
                 distances.append(100.0)
             }
+            
+            let node = addShape(x: 0, y: -1, z: 0, radius: 0.2)
+            nodes.append(node)
+            distances.append(100.0)
+            
         } else if sceneConfig == "Column" {
             conductor.interactionDistance = 0.4
             
@@ -140,7 +145,11 @@ class ViewController: UIViewController, ARSessionDelegate {
     
     func addShape(x: Double, y: Double, z: Double, radius: CGFloat) -> SCNNode {
         let node = SCNNode()
-        node.geometry = SCNCylinder(radius: radius, height: 2)
+        if sceneConfig == "Sax" {
+            node.geometry = SCNCylinder(radius: radius, height: 2)
+        } else {
+            node.geometry = SCNSphere(radius: radius)
+        }
         node.geometry?.firstMaterial?.diffuse.contents = UIColor.orange
         node.position = SCNVector3(x, y, z)
         
