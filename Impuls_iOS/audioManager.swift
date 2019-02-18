@@ -48,6 +48,8 @@ class AudioManager {
             setupSaxConfig()
         case "Outdoor":
             setupOutdoorConfig()
+        case "Column":
+            break
         default:
             setupDefaultConfig()
         }
@@ -153,6 +155,8 @@ class AudioManager {
             if samplers.count > 0 {
                 samplers[index].volume = normalisedVal
             }
+        case "Column":
+            break
         default:
             oscillators[index].amplitude = normalisedVal
         }

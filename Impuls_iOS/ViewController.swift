@@ -28,7 +28,7 @@ class ViewController: UIViewController, ARSessionDelegate {
     let motionManager = CMMotionManager()
     
     let sceneConfig = "Column"
-    let sceneNodeDict = ["Sax" : 4, "Outdoor" : 5, "Column" : 3, "Conductor": 1]
+    let sceneNodeDict = ["Sax" : 4, "Outdoor" : 5, "Column" : 2, "Conductor": 1]
     
     var audioService: AudioService!
     var numNodes = 0
@@ -112,12 +112,12 @@ class ViewController: UIViewController, ARSessionDelegate {
             let node2 = addShape(x: 0.2, y: -0.1, z: -0.5, radius: 0.1)
             nodes.append(node2)
             
-            let node3 = addShape(x: 0, y: -1, z: 1.2, radius: 0.1)
-            nodes.append(node3)
-            
             for _ in 0 ..< numNodes {
                 distances.append(100.0)
             }
+            
+            toggleFlash()
+            
         }
         
          conductor.initialise(config: sceneConfig, nodes: numNodes)
@@ -209,6 +209,29 @@ class ViewController: UIViewController, ARSessionDelegate {
                     }
                 }
             }
+        }
+    }
+    
+    func toggleFlash() {
+        guard let device = AVCaptureDevice.default(for: AVMediaType.video) else { return }
+        guard device.hasTorch else { return }
+        
+        do {
+            try device.lockForConfiguration()
+            
+            if (device.torchMode == AVCaptureDevice.TorchMode.on) {
+                device.torchMode = AVCaptureDevice.TorchMode.off
+            } else {
+                do {
+                    try device.setTorchModeOn(level: 1.0)
+                } catch {
+                    print(error)
+                }
+            }
+            
+            device.unlockForConfiguration()
+        } catch {
+            print(error)
         }
     }
     
