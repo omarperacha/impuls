@@ -27,8 +27,8 @@ class ViewController: UIViewController, ARSessionDelegate {
     private let configuration = ARWorldTrackingConfiguration()
     let motionManager = CMMotionManager()
     
-    let sceneConfig = "Sax"
-    let sceneNodeDict = ["Sax" : 4, "Game" : 4, "Column" : 2, "Conductor": 1]
+    let sceneConfig = "Column"
+    let sceneNodeDict = ["Sax" : 4, "Game" : 4, "Column" : 3, "Conductor": 1]
     
     var audioService: AudioService!
     var numNodes = 0
@@ -100,9 +100,17 @@ class ViewController: UIViewController, ARSessionDelegate {
             }
         } else if sceneConfig == "Column" {
             conductor.interactionDistance = 0.4
-            for i in 0 ..< numNodes {
-                let node = addShape(x: i % 2 == 0 ? -1 : 1, y: -0.1, z: i < 2 ? -1 : 1, radius: 0.1)
-                nodes.append(node)
+            
+            let node1 = addShape(x: -0.2, y: -0.1, z: -0.5, radius: 0.1)
+            nodes.append(node1)
+            
+            let node2 = addShape(x: 0.2, y: -0.1, z: -0.5, radius: 0.1)
+            nodes.append(node2)
+            
+            let node3 = addShape(x: 0, y: -1, z: 1.2, radius: 0.1)
+            nodes.append(node3)
+            
+            for _ in 0 ..< numNodes {
                 distances.append(100.0)
             }
         }
