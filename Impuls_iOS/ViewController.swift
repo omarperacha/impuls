@@ -195,7 +195,9 @@ class ViewController: UIViewController, ARSessionDelegate {
         if let userInfo = notification.userInfo {
             if let volumeChangeType = userInfo["AVSystemController_AudioVolumeChangeReasonNotificationParameter"] as? String {
                 if volumeChangeType == "ExplicitVolumeChange" {
-                    print("000_ volume change")
+                    if audioService != nil {
+                        audioService.send(distance: "0" + audioService.myPeerId.displayName)
+                    }
                 }
             }
         }
