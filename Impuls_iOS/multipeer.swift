@@ -26,10 +26,11 @@ class AudioService : NSObject {
     
     let myPeerId = MCPeerID(displayName: UIDevice.current.name)
     
-    private let serviceAdvertiser : MCNearbyServiceAdvertiser
     private let serviceBrowser : MCNearbyServiceBrowser
+    private let serviceAdvertiser: MCNearbyServiceAdvertiser
     
     override init() {
+        
         self.serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: nil, serviceType: audioServiceType)
         self.serviceBrowser = MCNearbyServiceBrowser(peer: myPeerId, serviceType: audioServiceType)
         
@@ -37,14 +38,15 @@ class AudioService : NSObject {
         
         self.serviceAdvertiser.delegate = self
         self.serviceAdvertiser.startAdvertisingPeer()
+
         
         self.serviceBrowser.delegate = self
         self.serviceBrowser.startBrowsingForPeers()
     }
     
     deinit {
-        self.serviceAdvertiser.stopAdvertisingPeer()
         self.serviceBrowser.stopBrowsingForPeers()
+        self.serviceAdvertiser.stopAdvertisingPeer()
     }
     
     lazy var session : MCSession = {
@@ -69,7 +71,6 @@ class AudioService : NSObject {
     
 }
 
-
 extension AudioService : MCNearbyServiceAdvertiserDelegate {
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
@@ -78,6 +79,7 @@ extension AudioService : MCNearbyServiceAdvertiserDelegate {
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
         NSLog("%@", "didReceiveInvitationFromPeer \(peerID)")
+        invitationHandler(true, self.session)
     }
     
 }
@@ -91,6 +93,7 @@ extension AudioService : MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         NSLog("%@", "foundPeer: \(peerID)")
         NSLog("%@", "invitePeer: \(peerID)")
+        //if peerID.displayName != O
         browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)
     }
     
