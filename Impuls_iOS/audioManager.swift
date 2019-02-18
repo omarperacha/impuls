@@ -24,6 +24,7 @@ class AudioManager {
     
     var oscillators = [AKOscillator]()
     var samplers = [AKWaveTable]()
+    var boosters = [AKBooster]()
     var mixer = AKMixer()
     var mixer1 = AKMixer()
     var mixer2 = AKMixer()
@@ -82,6 +83,10 @@ class AudioManager {
             samplers.append(sampler)
             samplers[i].loopEnabled = true
             samplers[i].volume = 0
+            
+            let booster = AKBooster()
+            boosters.append(booster)
+            booster.gain = 1.5
             
             
             if i < mixerSplitIdx {
