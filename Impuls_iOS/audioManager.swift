@@ -20,7 +20,7 @@ class AudioManager {
 
     let samples = ["multiphonic1_laut.wav", "multiphonic2_laut.wav", "multiphonic3_laut.wav", "multiphonic4_laut.wav", "multiphonic5_laut.wav", "multiphonic6_laut.wav", "multiphonic7_laut.wav", "multiphonic8_laut.wav"]
     
-     let outdoorSamples = ["1 Beep low compressed bounce.aif", "2 bird market process_bip.aif", "3 papers_bip.aif", "4 Suspiro bounce.aif", "5 Traffic bounce.aif"]
+     let outdoorSamples = ["1 Beep low compressed bounce.aif", "2 bird market bounce.aif", "3 papers bounce.aif", "4 Suspiro bounce.aif", "5 Traffic bounce.aif"]
     
     var oscillators = [AKOscillator]()
     var samplers = [AKWaveTable]()
@@ -103,6 +103,7 @@ class AudioManager {
         
         for i in 0 ..< (nodes) {
             
+            print("000_ filenum: \(i)")
             let file = try! AKAudioFile(readFileName: outdoorSamples[i])
             let sampler = AKWaveTable(file: file)
             samplers.append(sampler)
