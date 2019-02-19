@@ -28,7 +28,7 @@ class ViewController: UIViewController, ARSessionDelegate {
     let motionManager = CMMotionManager()
     
     let sceneConfig = "Column"
-    let sceneNodeDict = ["Sax" : 4, "Outdoor" : 5, "Column" : 2, "Conductor": 1]
+    let sceneNodeDict = ["Sax" : 4, "Outdoor" : 5, "Column" : 1, "Conductor": 1]
     
     var audioService: AudioService!
     var numNodes = 0
@@ -49,6 +49,15 @@ class ViewController: UIViewController, ARSessionDelegate {
         // 2
         sceneLocationView.session.run(configuration)
         view.addSubview(sceneLocationView)
+        
+        if sceneConfig == "Column" {
+            let button = UIButton(frame: CGRect(x: self.view.bounds.midX - 75, y: 500, width: 150, height: 100))
+            button.backgroundColor = .cyan
+            button.setTitle("Trigger", for: .normal)
+            button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+            
+            self.sceneLocationView.addSubview(button)
+        }
         
         let volumeView = MPVolumeView(frame: CGRect(x: 0, y: 40, width: 300, height: 30))
         self.view.addSubview(volumeView)
@@ -106,11 +115,8 @@ class ViewController: UIViewController, ARSessionDelegate {
         } else if sceneConfig == "Column" {
             conductor.interactionDistance = 0.4
             
-            let node1 = addShape(x: -0.2, y: -0.1, z: -0.5, radius: 0.1)
+            let node1 = addShape(x: 0, y: -0.1, z: -0.5, radius: 0.1)
             nodes.append(node1)
-            
-            let node2 = addShape(x: 0.2, y: -0.1, z: -0.5, radius: 0.1)
-            nodes.append(node2)
             
             for _ in 0 ..< numNodes {
                 distances.append(100.0)
@@ -232,6 +238,12 @@ class ViewController: UIViewController, ARSessionDelegate {
             device.unlockForConfiguration()
         } catch {
             print(error)
+        }
+    }
+    
+    @objc func buttonAction(sender: UIButton!) {
+        if audioService != nil {
+            audioService.send(distance: "1" + audioService.myPeerId.displayName)
         }
     }
     
