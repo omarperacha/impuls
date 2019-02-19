@@ -78,7 +78,7 @@ extension AudioService : MCNearbyServiceAdvertiserDelegate {
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
         NSLog("%@", "didReceiveInvitationFromPeer \(peerID)")
-        if peerID.displayName != "omars-macbook.local" {
+        if peerID.displayName != "omars-macbook.local" && peerID.displayName != "macbook-pro-di-pietro-dossena.local" {
             return
         }
         invitationHandler(true, self.session)
@@ -95,7 +95,7 @@ extension AudioService : MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         NSLog("%@", "foundPeer: \(peerID)")
         NSLog("%@", "invitePeer: \(peerID)")
-        if peerID.displayName != "omars-macbook.local" {
+        if peerID.displayName != "omars-macbook.local" && peerID.displayName != "macbook-pro-di-pietro-dossena.local" {
             return
         }
         browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)
